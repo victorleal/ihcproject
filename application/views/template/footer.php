@@ -1,4 +1,5 @@
-</div> <!-- /conteudo -->
+</div>
+<!-- /conteudo -->
 
 <!-- Rodape -->
 <footer>
@@ -9,15 +10,13 @@
 			</p>
 			<p class="text-right">
 				<a target="_blank" href="http://www.unicamp.br">Universidade Estadual de Campinas</a>
-			<!--</p>
-			<p class="text-center">--> - 
+				-
 				<a target="_blank" href="http://www.ft.unicamp.br">Faculdade de Tecnologia</a>
 			</p>
 			<p class="text-right">
 				Baseado no <a target="_blank" href="http://getbootstrap.com">Bootstrap</a>
-			<!--</p>
-			<p class="text-center">--> e construído com 
-				 <a target="_blank" href="http://ellislab.com/codeigniter">CodeIgniter</a>
+				e construído com
+				<a target="_blank" href="http://ellislab.com/codeigniter">CodeIgniter</a>
 			</p>
 
 		</div>
