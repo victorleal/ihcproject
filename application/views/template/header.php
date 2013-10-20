@@ -41,13 +41,13 @@
 							<a href="index.php">In&iacute;cio</a>
 						</li>
 						<li>
-							<a id="link_reserva" href="javascript:;" onclick="listaReservas();">Reservas</a>
+							<a id="link_reservas" href="javascript:;" onclick="listaReservas();">Reservas</a>
 						</li>
 						<li>
-							<a id="link_sala" href="salacontroller/index">Salas</a>
+							<a id="link_salas" href="javascript:;" onclick="enviar('salas')">Salas</a>
 						</li>
 						<li>
-							<a id="link_usuario" href="javascript:;" onclick="listaUsuarios();">Usuários</a>
+							<a id="link_usuarios" href="javascript:;" onclick="listaUsuarios();">Usuários</a>
 						</li>
 						<li>
 							<a id="link_sobre" href="javascript:;" onclick="sobre();">Sobre</a>
@@ -65,4 +65,5 @@
 		</div>
 		<!-- Fim Menu -->
 		<div class="container" style="margin-top:70px;">
+			<div class="container" id="conteudo" style="min-height:500px;">
 

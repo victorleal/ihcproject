@@ -1,71 +1,83 @@
-function trocaClasse(id){
+function trocaClasse(id) {
 	$anterior = $("#menu").find(".active");
 	$anterior.removeClass();
 	$("#link_" + id).parent().addClass("active");
 }
 
-function sobre(){
+function enviar(id) {
+	var url = id;
+	$.ajax({
+		url : url,
+		type : "POST",
+		dataType : "html",
+		success: function(html){
+			$("#conteudo").html(html);
+			trocaClasse(id);
+		}
+	});
+}
+
+function sobre() {
 	$("#conteudo").load("sobre.php");
 }
 
-function contato(){
+function contato() {
 	$("#conteudo").load("contato.php");
 }
 
-function listaReservas(){
+function listaReservas() {
 	$("#conteudo").load("reserva/listaReservas.php");
 	trocaClasse("reserva");
 }
 
-function listaSalas(){
+function listaSalas() {
 	$("#conteudo").load("sala/listaSalas.php");
 	trocaClasse("sala");
 }
 
-function listaUsuarios(){
+function listaUsuarios() {
 	$("#conteudo").load("usuario/listaUsuarios.php");
 	trocaClasse("usuario");
 }
 
-function solicitarReserva(){
+function solicitarReserva() {
 	$("#conteudo").load("reserva/solicitarReserva.php");
 	trocaClasse('reserva');
 }
 
-function alterarReserva(){
+function alterarReserva() {
 	$("#conteudo").load("reserva/alterarReserva.php");
 	trocaClasse('reserva');
 }
 
-function removeRegistro(id){
+function removeRegistro(id) {
 	var r = confirm("Confirma exclusão?");
-	if (r==true)
-	  {
-	  $("#listagem tr#"+id).remove();
-	  }
+	if (r == true) {
+		$("#listagem tr#" + id).remove();
+	}
 }
 
-function cadastrarSala(){
+function cadastrarSala() {
 	$("#conteudo").load("sala/cadastroSala.php");
 	trocaClasse('sala');
 }
 
-function cadastrarUsuario(){
+function cadastrarUsuario() {
 	$("#conteudo").load("usuario/formCadastroUsuario.php");
 	trocaClasse('usuario');
 }
 
-function alterarSala(){
+function alterarSala() {
 	$("#conteudo").load("sala/alterarCadastroSala.php");
 	trocaClasse('sala');
 }
 
-function alterarUsuario(){
+function alterarUsuario() {
 	$("#conteudo").load("usuario/formAlterarCadastroUsuario.php");
 	trocaClasse('usuario');
 }
 
-function vai(){
+function vai() {
 
 	$.post('save', {
 		'nome' : $("#nome").val(),
@@ -75,6 +87,6 @@ function vai(){
 	function(result) {
 		// clear any message that may have already been written
 		alert('done');
-	}); 
+	});
 
 }

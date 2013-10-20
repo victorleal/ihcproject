@@ -1,3 +1,5 @@
+</div> <!-- /conteudo -->
+
 <!-- Rodape -->
 <footer>
 	<div class="row">
@@ -18,7 +20,6 @@
 		</div>
 	</div>
 </footer>
-
 </div> <!-- /container -->
 
 <!-- Bootstrap core JavaScript
