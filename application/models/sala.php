@@ -21,16 +21,15 @@ class Sala extends CI_Model {
 	}
 
 	public function update($id, $data) {
-		if (isset($data['password']))
-			$data['password'] = sha1($data['password'] . $this -> salt);
 		$this -> db -> where('id', $id);
-		$update = $this -> db -> update('usuario', $data);
+		$update = $this -> db -> update('sala', $data);
 		return $update;
 	}
 
 	public function delete($id) {
 		$this -> db -> where('id', $id);
-		$this -> db -> delete('usuario');
+		$this -> db -> delete('sala');
 	}
+
 }
 ?>

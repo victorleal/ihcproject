@@ -3,11 +3,11 @@
 </div>
 <div class="row">
 	<div class="btn-group btn-group-sm">
-		<button type="button" class="btn btn-default btn-group-sm">
-			<span class="glyphicon glyphicon-plus"></span> <a href="add">Nova Sala</a>
+		<button type="button" class="btn btn-default btn-group-sm" onclick="formCadSala();">
+			<span class="glyphicon glyphicon-plus"></span>Nova Sala
 		</button>
 	</div>
-	<br/>
+	<br/><br/>
 </div>
 <div class="row">
 	<table id="listagem" class="table table-striped">
@@ -25,7 +25,10 @@
 			<td><?php echo $sala["ID"]; ?></td>
 			<td><?php echo $sala["Nome"]; ?></td>
 			<td><?php echo $sala["QuantidadeLugares"]; ?></td>
-			<td><a title="Alterar" class="glyphicon glyphicon-edit" href="#" onclick="alterarSala();"></a>&nbsp; <a title="Excluir" class="glyphicon glyphicon-remove" onclick="removeRegistro(1);" href="#"></a></td>
+			<td>
+				<a title="Alterar" class="glyphicon glyphicon-edit" href="#" onclick="formAltSala(<?php echo $sala["ID"]; ?>);"></a>&nbsp;
+				<a title="Excluir" class="glyphicon glyphicon-remove" onclick="removerSala(<?php echo $sala["ID"]; ?>);" href="#"></a>
+			</td>
 		</tr>
 		<?php } ?>
 	</table>

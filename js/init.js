@@ -64,8 +64,8 @@ function cadastrarUsuario() {
 					nome : nome,
 					email : email,
 					senha : senha,
-					matricula: matricula,
-					telefone: telefone
+					matricula : matricula,
+					telefone : telefone
 				},
 				dataType : "html",
 				success : function(html) {
@@ -105,8 +105,8 @@ function alterarUsuario() {
 					nome : nome,
 					email : email,
 					senha : senha,
-					matricula: matricula,
-					telefone: telefone
+					matricula : matricula,
+					telefone : telefone
 				},
 				dataType : "html",
 				success : function(html) {
@@ -122,8 +122,55 @@ function alterarUsuario() {
 }
 
 function removerUsuario(id) {
+	myConfirm("Deseja excluir este usuário?", function(e) {
+		if (e) {
+			$.ajax({
+				url : "usuarios/delete",
+				type : "POST",
+				data : {
+					id : id
+				},
+				dataType : "html",
+				success : function(html) {
+					$("#conteudo").html(html);
+				}
+			});
+		}
+	});
+}
+
+function formCadSala() {
 	$.ajax({
-		url : "usuarios/delete",
+		url : "salas/formCadSala",
+		type : "POST",
+		dataType : "html",
+		success : function(html) {
+			$("#conteudo").html(html);
+		}
+	});
+}
+
+function cadastrarSala() {
+	var nome = $("#nome").val();
+	var qtdeLugares = $("#qtdeLugares").val();
+	$.ajax({
+		url : "salas/save",
+		type : "POST",
+		data : {
+			nome : nome,
+			qtdeLugares : qtdeLugares
+		},
+		dataType : "html",
+		success : function(html) {
+			$("#conteudo").html(html);
+		}
+	});
+
+}
+
+function formAltSala(id) {
+	$.ajax({
+		url : "salas/formAltSala",
 		type : "POST",
 		data : {
 			id : id
@@ -135,66 +182,65 @@ function removerUsuario(id) {
 	});
 }
 
-function sobre() {
-	$("#conteudo").load("sobre.php");
-}
-
-function contato() {
-	$("#conteudo").load("contato.php");
-}
-
-function listaReservas() {
-	$("#conteudo").load("reserva/listaReservas.php");
-	trocaClasse("reserva");
-}
-
-function listaSalas() {
-	$("#conteudo").load("sala/listaSalas.php");
-	trocaClasse("sala");
-}
-
-function listaUsuarios() {
-	$("#conteudo").load("usuario/listaUsuarios.php");
-	trocaClasse("usuario");
-}
-
-function solicitarReserva() {
-	$("#conteudo").load("reserva/solicitarReserva.php");
-	trocaClasse('reserva');
-}
-
-function alterarReserva() {
-	$("#conteudo").load("reserva/alterarReserva.php");
-	trocaClasse('reserva');
-}
-
-function removeRegistro(id) {
-	var r = confirm("Confirma exclusão?");
-	if (r == true) {
-		$("#listagem tr#" + id).remove();
-	}
-}
-
-function cadastrarSala() {
-	$("#conteudo").load("sala/cadastroSala.php");
-	trocaClasse('sala');
-}
-
 function alterarSala() {
-	$("#conteudo").load("sala/alterarCadastroSala.php");
-	trocaClasse('sala');
-}
-
-function vai() {
-
-	$.post('save', {
-		'nome' : $("#nome").val(),
-		'qtdeLugares' : $("#qtdeLugares").val()
-	},
-	// when the Web server responds to the request
-	function(result) {
-		// clear any message that may have already been written
-		alert('done');
+	var id = $("#id").val();
+	var nome = $("#nome").val();
+	var qtdeLugares = $("#qtdeLugares").val();
+	$.ajax({
+		url : "salas/update",
+		type : "POST",
+		data : {
+			id : id,
+			nome : nome,
+			qtdeLugares : qtdeLugares
+		},
+		dataType : "html",
+		success : function(html) {
+			$("#conteudo").html(html);
+		}
 	});
 
+}
+
+function removerSala(id) {
+	myConfirm("Deseja excluir esta sala?", function(e) {
+		if (e) {
+			$.ajax({
+				url : "salas/delete",
+				type : "POST",
+				data : {
+					id : id
+				},
+				dataType : "html",
+				success : function(html) {
+					$("#conteudo").html(html);
+				}
+			});
+		}
+	});
+}
+
+function myConfirm(msg, fn) {
+	var options = {
+		buttons : {
+			confirm : {
+				text : 'Sim',
+				className : 'blue',
+				action : function(e) {
+					fn(true);
+					Apprise('close');
+				}
+			},
+			cancel : {
+				text : 'Não',
+				className : 'red',
+				action : function(e) {
+					fn(false);
+					Apprise('close');
+				}
+			}
+		}
+	};
+
+	Apprise(msg, options);
 }

@@ -31,6 +31,7 @@
 <script src="<?php echo base_url(); ?>js/jquery.mask.js"></script>
 <script src="<?php echo base_url(); ?>js/bootstrap.js"></script>
 <script src="<?php echo base_url(); ?>js/init.js"></script>
+<script src="<?php echo base_url(); ?>js/apprise.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
 		//listaReservas();
