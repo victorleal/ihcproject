@@ -10,8 +10,8 @@
 		<title>Reserva Salas FT</title>
 
 		<!-- Bootstrap core CSS -->
-		<link href="<?php echo base_url(); ?>css/bootstrap.css" rel="stylesheet">
 		<link href="<?php echo base_url(); ?>css/signin.css" rel="stylesheet">
+		<link href="<?php echo base_url(); ?>css/bootstrap.css" rel="stylesheet">		
 
 		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!--[if lt IE 9]>
@@ -65,5 +65,5 @@
 		</div>
 		<!-- Fim Menu -->
 		<div class="container" style="margin-top:70px;">
-			<div class="container" id="conteudo" style="min-height:500px;">
+			<div class="container theme-showcase" id="conteudo" style="min-height:500px;">
 

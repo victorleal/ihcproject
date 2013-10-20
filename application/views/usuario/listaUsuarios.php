@@ -7,7 +7,7 @@
 			<span class="glyphicon glyphicon-plus"></span>Novo Usuário
 		</button>
 	</div>
-	<br/>
+	<br/><br/>
 </div>
 <div class="row">
 	<table id="listagem" class="table table-striped">
