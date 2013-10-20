@@ -4,7 +4,7 @@
 	$data = array(
 		'name'        => 'usuario',
 		'class' => 'form-control',
-		'placeholder' => 'Usuário'
+		'placeholder' => 'E-mail'
 	);
 	echo form_input($data);
 	
@@ -24,5 +24,7 @@
 <?php } ?>
 
 <?php echo form_submit('login', 'Acessar', 'class="btn btn-lg btn-primary btn-block"'); ?>
-
+<p class="text-right">Caso não possua login, crie um <a href="login/adicionarUsuario">aqui</a>!</p>
 <?php echo form_close(); ?>
+
+

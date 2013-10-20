@@ -10,11 +10,39 @@ function enviar(id) {
 		url : url,
 		type : "POST",
 		dataType : "html",
-		success: function(html){
+		success : function(html) {
 			$("#conteudo").html(html);
 			trocaClasse(id);
 		}
 	});
+}
+
+function cadastrarUsuario() {
+	var tipoUsuario = $("#tipoUsuario option:selected").val();
+	var nome = $("#nome").val();
+	var email = $("#email").val();
+	var senha = $("#senha").val();
+	var confirmaSenha = $("#confirmaSenha").val();
+	if (senha != confirmaSenha) {
+		$("#erro").show();
+		$("#senha").addClass("has-error");
+		$("#confirmaSenha").addClass("has-error");
+	} else {
+		$.ajax({
+			url : "/reservaSala/usuarios/save",
+			type : "POST",
+			data : {
+				tipoUsuario : tipoUsuario,
+				nome : nome,
+				email : email,
+				senha : senha
+			},
+			dataType : "html",
+			success : function(html) {
+				$("#conteudo").html(html);
+			}
+		});
+	}
 }
 
 function sobre() {
@@ -60,11 +88,6 @@ function removeRegistro(id) {
 function cadastrarSala() {
 	$("#conteudo").load("sala/cadastroSala.php");
 	trocaClasse('sala');
-}
-
-function cadastrarUsuario() {
-	$("#conteudo").load("usuario/formCadastroUsuario.php");
-	trocaClasse('usuario');
 }
 
 function alterarSala() {

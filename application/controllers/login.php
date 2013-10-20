@@ -20,6 +20,7 @@ class Login extends CI_Controller {
 
 		if ($result) {
 			$this -> session -> set_userdata(array('logged' => true, 'user' => $result['id'], 'level' => $result['level']));
+			$this -> usuario -> loginLog($result['id']);
 			redirect('home');
 		} else {
 			// Load View
@@ -38,6 +39,13 @@ class Login extends CI_Controller {
 		$this -> session -> unset_userdata('logged');
 
 		redirect('login');
+	}
+
+	public function adicionarUsuario() {
+		$this -> session -> set_userdata(array('external' => true));
+		$this -> load -> model('tipousuario');
+		$data['tiposUsuario'] = $this -> tipousuario -> get();
+		$this -> template -> show('novoUsuario', $data);
 	}
 
 }

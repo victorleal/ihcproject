@@ -1,18 +1,12 @@
 <?php
-class Usuario extends CI_Model {
-	private $salt = 'i550';
-
-	public $USER_LEVEL_ALUNO = 1;
-	public $USER_LEVEL_PROFESSOR = 2;
-	public $USER_LEVEL_FUNCIONARIO = 3;
-	public $USER_LEVEL_ADMIN = 4;
+class TipoUsuario extends CI_Model {
 
 	public function get($id = false) {
 		if ($id) {
 			$this -> db -> where('id', $id);
 		}
-		$this -> db -> order_by('email', 'asc');
-		$get = $this -> db -> get('usuario');
+		$this -> db -> order_by('descricao', 'asc');
+		$get = $this -> db -> get('tipousuario');
 		if ($id) {
 			return $get -> row_array();
 		}
@@ -23,7 +17,7 @@ class Usuario extends CI_Model {
 	}
 
 	public function create($data) {
-		$data['senha'] = sha1($data['senha'] . $this -> salt);
+		$data['password'] = sha1($data['password'] . $this -> salt);
 		return $this -> db -> insert('usuario', $data);
 	}
 
