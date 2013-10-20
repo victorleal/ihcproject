@@ -5,7 +5,7 @@
 	<div class="row">
 		<div class="col-lg-12">
 			<p class="text-right">
-				Desenvolvido para a disciplina <a target="_blank" href="http://www.dac.unicamp.br/sistemas/catalogos/grad/catalogo2012/coordenadorias/0065/0065.html#ST047">ST047 - Introdução à Interfaces Humano-Computador</a>.
+				Desenvolvido para a disciplina <a target="_blank" href="http://www.dac.unicamp.br/sistemas/catalogos/grad/catalogo2012/coordenadorias/0065/0065.html#ST047">ST047 - Introdução à Interfaces Humano-Computador</a>
 			</p>
 			<p class="text-right">
 				<a target="_blank" href="http://www.unicamp.br">Universidade Estadual de Campinas</a>
@@ -14,7 +14,10 @@
 				<a target="_blank" href="http://www.ft.unicamp.br">Faculdade de Tecnologia</a>
 			</p>
 			<p class="text-right">
-				Baseado no <a href="http://getbootstrap.com">Bootstrap</a>.
+				Baseado no <a href="http://getbootstrap.com">Bootstrap</a>
+			</p>
+			<p class="text-right">
+				Feito com <a href="http://ellislab.com/codeigniter">CodeIgniter</a>
 			</p>
 
 		</div>
