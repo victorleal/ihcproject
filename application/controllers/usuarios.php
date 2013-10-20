@@ -11,24 +11,36 @@ class Usuarios extends CI_Controller {
 	}
 
 	public function index() {
-		$this -> load -> model('sala');
-		$data['salas'] = $this -> sala -> get(false);
+		$this -> load -> model('usuario');
+		$data['usuarios'] = $this -> usuario -> get(false);
 
-		$data['page_title'] = "Salas";
+		$data['page_title'] = "Usuários";
 		$data['logged'] = $this -> session -> userdata('logged');
 
 		// Load View
-		$this -> load -> view('sala/listaSalas', $data);
+		$this -> load -> view('usuario/listaUsuarios', $data);
 	}
 
-	public function add() {
+	public function formCadUsuario() {
+		$this -> session -> set_userdata(array('external' => false));
 		$data['logged'] = $this -> session -> userdata('logged');
+		$this -> load -> model('tipousuario');
+		$data['tiposUsuario'] = $this -> tipousuario -> get();
+		$data['page_title'] = "Novo Usuário";
 
-		$data['page_title'] = "Nova Sala";
-		$data['nome'] = '';
-		$data['quantidadelugares'] = '';
+		$this -> load -> view('usuario/formCadUsuario', $data);
+	}
 
-		$this -> template -> show('sala/formCadSala', $data);
+	public function formAltUsuario() {
+		$data['logged'] = $this -> session -> userdata('logged');
+		$id = trim($_POST['id']);
+		$this -> load -> model('usuario');
+		$data['usuario'] = $this -> usuario -> get($id);
+		$this -> load -> model('tipousuario');
+		$data['tiposUsuario'] = $this -> tipousuario -> get();
+		$data['page_title'] = "Novo Usuário";
+
+		$this -> load -> view('usuario/formAltUsuario', $data);
 	}
 
 	public function save() {
@@ -38,8 +50,25 @@ class Usuarios extends CI_Controller {
 		if ($result && $this -> session -> userdata('external')) {
 			redirect('login');
 		} else if ($result) {
-			redirect('index');
+			redirect('usuarios');
 		}
+	}
+
+	public function update() {
+		$this -> load -> model('usuario');
+		$id = trim($_POST['id']);
+		$sql_data = array('nome' => trim($_POST['nome']), 'email' => trim($_POST['email']), 'senha' => trim($_POST['senha']), 'tipousuario' => trim($_POST['tipoUsuario']));
+		$result = $this -> usuario -> update($id, $sql_data);
+		if ($result) {
+			redirect('usuarios');
+		}
+	}
+
+	public function delete() {
+		$this -> load -> model('usuario');
+		$id = trim($_POST['id']);
+		$this -> usuario -> delete($id);
+		redirect('usuarios');
 	}
 
 }

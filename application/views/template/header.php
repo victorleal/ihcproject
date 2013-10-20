@@ -41,19 +41,19 @@
 							<a href="index.php">In&iacute;cio</a>
 						</li>
 						<li>
-							<a id="link_reservas" href="javascript:;" onclick="listaReservas();">Reservas</a>
+							<a id="link_reservas" href="javascript:;" onclick="enviar('reservas');">Reservas</a>
 						</li>
 						<li>
-							<a id="link_salas" href="javascript:;" onclick="enviar('salas')">Salas</a>
+							<a id="link_salas" href="javascript:;" onclick="enviar('salas');">Salas</a>
 						</li>
 						<li>
-							<a id="link_usuarios" href="javascript:;" onclick="listaUsuarios();">Usuários</a>
+							<a id="link_usuarios" href="javascript:;" onclick="enviar('usuarios');">Usuários</a>
 						</li>
 						<li>
-							<a id="link_sobre" href="javascript:;" onclick="sobre();">Sobre</a>
+							<a id="link_sobre" href="javascript:;" onclick="enviar('sobre');">Sobre</a>
 						</li>
 						<li>
-							<a id="link_contato" href="javascript:;" onclick="contato();">Contato</a>
+							<a id="link_contato" href="javascript:;" onclick="enviar('contato');">Contato</a>
 						</li>
 						<li>
 							<a id="sair" href="login/logout">Sair</a>

@@ -17,32 +17,113 @@ function enviar(id) {
 	});
 }
 
+function formCadUsuario() {
+	$.ajax({
+		url : "usuarios/formCadUsuario",
+		type : "POST",
+		dataType : "html",
+		success : function(html) {
+			$("#conteudo").html(html);
+		}
+	});
+}
+
+function formAltUsuario(id) {
+	$.ajax({
+		url : "usuarios/formAltUsuario",
+		type : "POST",
+		data : {
+			id : id
+		},
+		dataType : "html",
+		success : function(html) {
+			$("#conteudo").html(html);
+		}
+	});
+}
+
 function cadastrarUsuario() {
 	var tipoUsuario = $("#tipoUsuario option:selected").val();
 	var nome = $("#nome").val();
 	var email = $("#email").val();
 	var senha = $("#senha").val();
 	var confirmaSenha = $("#confirmaSenha").val();
-	if (senha != confirmaSenha) {
+	if (senha != '' || confirmaSenha != '') {
+		if (senha != confirmaSenha) {
+			$("#erro").show();
+			$("#senha").addClass("has-error");
+			$("#confirmaSenha").addClass("has-error");
+		} else {
+			$.ajax({
+				url : "/reservaSala/usuarios/save",
+				type : "POST",
+				data : {
+					tipoUsuario : tipoUsuario,
+					nome : nome,
+					email : email,
+					senha : senha
+				},
+				dataType : "html",
+				success : function(html) {
+					$("#conteudo").html(html);
+				}
+			});
+		}
+	} else {
 		$("#erro").show();
 		$("#senha").addClass("has-error");
 		$("#confirmaSenha").addClass("has-error");
-	} else {
-		$.ajax({
-			url : "/reservaSala/usuarios/save",
-			type : "POST",
-			data : {
-				tipoUsuario : tipoUsuario,
-				nome : nome,
-				email : email,
-				senha : senha
-			},
-			dataType : "html",
-			success : function(html) {
-				$("#conteudo").html(html);
-			}
-		});
 	}
+}
+
+function alterarUsuario() {
+	var id = $("#id").val();
+	var tipoUsuario = $("#tipoUsuario option:selected").val();
+	var nome = $("#nome").val();
+	var email = $("#email").val();
+	var senha = $("#senha").val();
+	var confirmaSenha = $("#confirmaSenha").val();
+	if (senha != '' || confirmaSenha != '') {
+		if (senha != confirmaSenha) {
+			$("#erro").show();
+			$("#senha").addClass("has-error");
+			$("#confirmaSenha").addClass("has-error");
+		} else {
+			$.ajax({
+				url : "usuarios/update",
+				type : "POST",
+				data : {
+					id : id,
+					tipoUsuario : tipoUsuario,
+					nome : nome,
+					email : email,
+					senha : senha
+				},
+				dataType : "html",
+				success : function(html) {
+					$("#conteudo").html(html);
+				}
+			});
+		}
+	} else {
+		$("#erro").show();
+		$("#senha").addClass("has-error");
+		$("#confirmaSenha").addClass("has-error");
+	}
+}
+
+function removerUsuario(id) {
+	$.ajax({
+		url : "usuarios/delete",
+		type : "POST",
+		data : {
+			id : id
+		},
+		dataType : "html",
+		success : function(html) {
+			$("#conteudo").html(html);
+		}
+	});
 }
 
 function sobre() {
@@ -93,11 +174,6 @@ function cadastrarSala() {
 function alterarSala() {
 	$("#conteudo").load("sala/alterarCadastroSala.php");
 	trocaClasse('sala');
-}
-
-function alterarUsuario() {
-	$("#conteudo").load("usuario/formAlterarCadastroUsuario.php");
-	trocaClasse('usuario');
 }
 
 function vai() {
