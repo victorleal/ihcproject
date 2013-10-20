@@ -38,7 +38,7 @@
 				<div class="collapse navbar-collapse">
 					<ul id="menu" class="nav navbar-nav">
 						<li class="active">
-							<a href="index.php">In&iacute;cio</a>
+							<a href="home">In&iacute;cio</a>
 						</li>
 						<li>
 							<a id="link_reservas" href="javascript:;" onclick="enviar('reservas');">Reservas</a>
