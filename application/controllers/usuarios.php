@@ -45,7 +45,7 @@ class Usuarios extends CI_Controller {
 
 	public function save() {
 		$this -> load -> model('usuario');
-		$sql_data = array('nome' => trim($_POST['nome']), 'email' => trim($_POST['email']), 'senha' => trim($_POST['senha']), 'tipousuario' => trim($_POST['tipoUsuario']));
+		$sql_data = array('nome' => trim($_POST['nome']), 'matricula' => $_POST['matricula'],'email' => trim($_POST['email']), 'senha' => trim($_POST['senha']), 'telefone' => $_POST['telefone'], 'tipousuario' => trim($_POST['tipoUsuario']));
 		$result = $this -> usuario -> create($sql_data);
 		if ($result && $this -> session -> userdata('external')) {
 			redirect('login');
@@ -57,7 +57,7 @@ class Usuarios extends CI_Controller {
 	public function update() {
 		$this -> load -> model('usuario');
 		$id = trim($_POST['id']);
-		$sql_data = array('nome' => trim($_POST['nome']), 'email' => trim($_POST['email']), 'senha' => trim($_POST['senha']), 'tipousuario' => trim($_POST['tipoUsuario']));
+		$sql_data = array('nome' => trim($_POST['nome']), 'matricula' => trim($_POST['matricula']),'email' => trim($_POST['email']), 'senha' => trim($_POST['senha']), 'telefone' => trim($_POST['telefone']), 'tipousuario' => trim($_POST['tipoUsuario']));
 		$result = $this -> usuario -> update($id, $sql_data);
 		if ($result) {
 			redirect('usuarios');

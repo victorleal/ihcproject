@@ -19,7 +19,7 @@
 					}
 					$data = array('id' => 'tipoUsuario', 'name' => 'tipoUsuario', 'class' => 'form-control');
 					?>
-					<?php echo form_dropdown('tipoUsuario', $options, null, 'id = tipoUsuario'); ?>
+					<?php echo form_dropdown('tipoUsuario', $options, null, 'id = "tipoUsuario" class="form-control"'); ?>
 				</div>
 			</div>
 
@@ -32,6 +32,34 @@
 				<div class="col-lg-10">
 					<?php
 					$data = array('id' => 'nome', 'name' => 'nome', 'class' => 'form-control', 'maxlength' => '50');
+					?>
+					<?php echo form_input($data); ?>
+				</div>
+			</div>
+			
+			<!-- Matricula -->
+			<div class="form-group">
+				<?php
+				$data = array('class' => 'col-lg-2 control-label', );
+				?>
+				<?php echo form_label('Matrícula/RA:', 'matricula', $data); ?>
+				<div class="col-lg-10">
+					<?php
+					$data = array('id' => 'matricula', 'name' => 'matricula', 'class' => 'form-control', 'maxlength' => '6');
+					?>
+					<?php echo form_input($data); ?>
+				</div>
+			</div>
+			
+			<!-- Telefone -->
+			<div class="form-group">
+				<?php
+				$data = array('class' => 'col-lg-2 control-label', );
+				?>
+				<?php echo form_label('Telefone:', 'telefone', $data); ?>
+				<div class="col-lg-10">
+					<?php
+					$data = array('id' => 'telefone', 'name' => 'telefone', 'class' => 'form-control', 'maxlength' => '50');
 					?>
 					<?php echo form_input($data); ?>
 				</div>

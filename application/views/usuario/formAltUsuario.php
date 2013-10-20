@@ -25,7 +25,7 @@
 					}
 					$data = array('id' => 'tipoUsuario', 'name' => 'tipoUsuario', 'class' => 'form-control');
 					?>
-					<?php echo form_dropdown('tipoUsuario', $options, $usuario['tipousuario'], 'id = tipoUsuario'); ?>
+					<?php echo form_dropdown('tipoUsuario', $options, $usuario['tipousuario'], 'id = "tipoUsuario" class="form-control"'); ?>
 				</div>
 			</div>
 
@@ -38,6 +38,34 @@
 				<div class="col-lg-10">
 					<?php
 					$data = array('id' => 'nome', 'name' => 'nome', 'class' => 'form-control', 'maxlength' => '50', 'value' => $usuario['nome']);
+					?>
+					<?php echo form_input($data); ?>
+				</div>
+			</div>
+			
+			<!-- Matricula -->
+			<div class="form-group">
+				<?php
+				$data = array('class' => 'col-lg-2 control-label', );
+				?>
+				<?php echo form_label('Matrícula/RA:', 'matricula', $data); ?>
+				<div class="col-lg-10">
+					<?php
+					$data = array('id' => 'matricula', 'name' => 'matricula', 'class' => 'form-control', 'maxlength' => '6', 'value' => $usuario['matricula']);
+					?>
+					<?php echo form_input($data); ?>
+				</div>
+			</div>
+			
+			<!-- Telefone -->
+			<div class="form-group">
+				<?php
+				$data = array('class' => 'col-lg-2 control-label', );
+				?>
+				<?php echo form_label('Telefone:', 'telefone', $data); ?>
+				<div class="col-lg-10">
+					<?php
+					$data = array('id' => 'telefone', 'name' => 'telefone', 'class' => 'form-control', 'maxlength' => '50', 'value' => $usuario['telefone']);
 					?>
 					<?php echo form_input($data); ?>
 				</div>
@@ -94,7 +122,7 @@
 			<div class="form-group">
 				<div class="col-lg-offset-2 col-lg-10">
 					<button type="button" class="btn btn-default" onclick="alterarUsuario();">
-						Cadastrar
+						Alterar
 					</button>
 					<button type="button" onclick="enviar('usuarios');" class="btn btn-default">
 						Cancelar

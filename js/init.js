@@ -48,6 +48,8 @@ function cadastrarUsuario() {
 	var email = $("#email").val();
 	var senha = $("#senha").val();
 	var confirmaSenha = $("#confirmaSenha").val();
+	var matricula = $("#matricula").val();
+	var telefone = $("#telefone").val();
 	if (senha != '' || confirmaSenha != '') {
 		if (senha != confirmaSenha) {
 			$("#erro").show();
@@ -61,7 +63,9 @@ function cadastrarUsuario() {
 					tipoUsuario : tipoUsuario,
 					nome : nome,
 					email : email,
-					senha : senha
+					senha : senha,
+					matricula: matricula,
+					telefone: telefone
 				},
 				dataType : "html",
 				success : function(html) {
@@ -83,6 +87,9 @@ function alterarUsuario() {
 	var email = $("#email").val();
 	var senha = $("#senha").val();
 	var confirmaSenha = $("#confirmaSenha").val();
+	var matricula = $("#matricula").val();
+	var telefone = $("#telefone").val();
+	console.log(matricula);
 	if (senha != '' || confirmaSenha != '') {
 		if (senha != confirmaSenha) {
 			$("#erro").show();
@@ -97,7 +104,9 @@ function alterarUsuario() {
 					tipoUsuario : tipoUsuario,
 					nome : nome,
 					email : email,
-					senha : senha
+					senha : senha,
+					matricula: matricula,
+					telefone: telefone
 				},
 				dataType : "html",
 				success : function(html) {
