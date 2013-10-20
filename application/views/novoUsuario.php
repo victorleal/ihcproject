@@ -94,7 +94,7 @@
 					<button type="button" class="btn btn-default" onclick="cadastrarUsuario();">
 						Cadastrar
 					</button>
-					<button type="button" onclick="location.href='login';" class="btn btn-default">
+					<button type="button" onclick="location.href='/reservaSala';" class="btn btn-default">
 						Cancelar
 					</button>
 				</div>
