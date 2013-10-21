@@ -263,9 +263,9 @@ function cadastrarReserva() {
 
 }
 
-function formAltSala(id) {
+function formAltReserva(id) {console.log(id);
 	$.ajax({
-		url : "salas/formAltSala",
+		url : "reservas/formAltReserva",
 		type : "POST",
 		data : {
 			id : id

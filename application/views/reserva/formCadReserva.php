@@ -106,7 +106,7 @@
 					<button type="button" class="btn btn-default" onclick="cadastrarReserva();">
 						Cadastrar
 					</button>
-					<button type="button" onclick="enviar('usuarios');" class="btn btn-default">
+					<button type="button" onclick="enviar('reservas');" class="btn btn-default">
 						Cancelar
 					</button>
 				</div>
