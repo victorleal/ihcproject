@@ -19,7 +19,7 @@ class Login extends CI_Controller {
 		$result = $this -> usuario -> validate($this -> input -> post('usuario'), $this -> input -> post('senha'));
 
 		if ($result) {
-			$this -> session -> set_userdata(array('logged' => true, 'user' => $result['id'], 'level' => $result['level']));
+			$this -> session -> set_userdata(array('logged' => true, 'user' => $result['id'], 'level' => $result['level'], 'nome' => $result['nome']));
 			$this -> usuario -> loginLog($result['id']);
 			redirect('home');
 		} else {

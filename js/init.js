@@ -5,7 +5,13 @@ function trocaClasse(id) {
 }
 
 function enviar(id) {
-	var url = id;
+	if (id == "sobre") {
+		url = "general/sobre";
+	} else if (id == "contato") {
+		url = "general/contato";
+	} else {
+		var url = id;
+	}
 	$.ajax({
 		url : url,
 		type : "POST",
@@ -159,6 +165,95 @@ function cadastrarSala() {
 		data : {
 			nome : nome,
 			qtdeLugares : qtdeLugares
+		},
+		dataType : "html",
+		success : function(html) {
+			$("#conteudo").html(html);
+		}
+	});
+
+}
+
+function formAltSala(id) {
+	$.ajax({
+		url : "salas/formAltSala",
+		type : "POST",
+		data : {
+			id : id
+		},
+		dataType : "html",
+		success : function(html) {
+			$("#conteudo").html(html);
+		}
+	});
+}
+
+function alterarSala() {
+	var id = $("#id").val();
+	var nome = $("#nome").val();
+	var qtdeLugares = $("#qtdeLugares").val();
+	$.ajax({
+		url : "salas/update",
+		type : "POST",
+		data : {
+			id : id,
+			nome : nome,
+			qtdeLugares : qtdeLugares
+		},
+		dataType : "html",
+		success : function(html) {
+			$("#conteudo").html(html);
+		}
+	});
+
+}
+
+function removerSala(id) {
+	myConfirm("Deseja excluir esta sala?", function(e) {
+		if (e) {
+			$.ajax({
+				url : "salas/delete",
+				type : "POST",
+				data : {
+					id : id
+				},
+				dataType : "html",
+				success : function(html) {
+					$("#conteudo").html(html);
+				}
+			});
+		}
+	});
+}
+
+function formCadReserva() {
+	$.ajax({
+		url : "reservas/formCadReserva",
+		type : "POST",
+		dataType : "html",
+		success : function(html) {
+			$("#conteudo").html(html);
+		}
+	});
+}
+
+function cadastrarReserva() {
+	var responsavel = $("#usuario").val();
+	var sala = $("#sala option:selected").val();
+	var evento = $("#evento").val();
+	var data = $("#data").val();
+	var inicio = $("#inicio").val();
+	var fim = $("#fim").val();
+	$.ajax({
+		url : "reservas/save",
+		type : "POST",
+		data : {
+			responsavel : responsavel,
+			sala : sala,
+			evento: evento,
+			data: data,
+			inicio: inicio,
+			fim: fim
 		},
 		dataType : "html",
 		success : function(html) {
