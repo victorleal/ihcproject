@@ -1,4 +1,3 @@
-ihcproject
-==========
+## Booking Rooms - HCI Evaluation
 
-This project is for creating a Room's Reservation app to Human-Computer Interaction classes.
+A simple app for room booking. The main objective of this project was to evaluate its interface regarding Human-Computer Interaction heuristics.
